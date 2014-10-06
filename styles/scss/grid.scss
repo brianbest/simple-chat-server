@@ -1,0 +1,65 @@
+//Basic 14 col grid to a max size of 1000px wide
+.chunk{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 62.5rem;
+  overflow:auto;
+  &:after{
+    clear:both;
+  }
+}
+
+.holder{
+  margin-left: 1.81818%;
+  float: left;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.size-1{
+  width:5.45455%;
+}
+.size-2{
+  width:12.72727%;
+}
+.size-3{
+  width:20%;
+}
+.size-4{
+  width:27.27273%;
+}
+.size-5{
+  width:34.54545%;
+}
+.size-6{
+  width:41.81818%;
+}
+.size-7{
+  width:49.09091%;
+}
+.size-8{
+  width:56.36364%;
+}
+.size-9{
+  width:63.63636%;
+}
+.size-10{
+  width:70.90909%;
+}
+.size-11{
+  width:78.18182%;
+}
+.size-12{
+  width:85.45455%;
+}
+.size-12{
+  width:92.72727%;
+}
+.size-12{
+  width:100%;
+}
