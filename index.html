@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="styles/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/css/style.css">
   </head>
   <body>
     <div class="wrap">
@@ -16,12 +16,33 @@
           </div>
 
           <!-- User input -->
-          <input type="text" id="chat_area" placeholder="Tell me your thoughts..."/>
+          <form action="">
+            <input type="text" id="chat_area" placeholder="Tell me your thoughts..."/>
+          </form>
           <!-- end input -->
         </div>
       </section>
     </div>
-    <script src="scripts/js/pure.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="./scripts/js/pure.js"></script>
+    <script>
+      var socket = io();
+      $('form').submit(function(){
+        var message = $('#chat_area').val();
+        message = scrubMessage(message);
+        if (message != false){
+          socket.emit('chat message', message);
+          $('#chat_area').val('');
+        }
+        return false;
+      });
+
+      socket.on('chat message', function(msg){
+        $('#msg_area').prepend($('<p>').text(msg));
+      });
+    </script>
 
     <!-- CoffeeScript file -->
     <!--<script src="scripts/js/app.js"></script>-->
