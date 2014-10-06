@@ -43,9 +43,8 @@
 
     for(var i = 0; i < 4; i++){
       var doeshave = check.search(emoji[i].char);
-      console.log(emoji[i].char+" "+doeshave);
+      //console.log(emoji[i].char+" "+doeshave);
       if (doeshave === 0){
-        console.log('has');
         var emoji_make = String.fromCharCode(emoji[i].emoji);
         check = check.replace(emoji[i].char,emoji);
       }
