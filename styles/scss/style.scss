@@ -68,3 +68,17 @@ p,input{
     }
   }
 }
+
+footer{
+  padding-top:2rem;
+  p{
+    color:#f0f0f0;;
+  }
+  a{
+    color:#fff;
+    transition:all 0.3s;
+    &:hover{
+      color:#ddd;
+    }
+  }
+}

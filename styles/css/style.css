@@ -117,3 +117,13 @@ p, input {
       background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3));
       /* For Firefox  */
       background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3)); }
+
+footer {
+  padding-top: 2rem; }
+  footer p {
+    color: #f0f0f0; }
+  footer a {
+    color: #fff;
+    transition: all 0.3s; }
+    footer a:hover {
+      color: #ddd; }
