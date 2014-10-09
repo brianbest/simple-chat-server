@@ -1,5 +1,60 @@
 //Pure Javascript version
 
+  var socket = io();
+  var user_name = "";
+
+  //Once user has entered name hide feild
+  function hide_name(){
+    $('#usr_name').addClass('hide');
+    $('#usr_name').bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
+    function() {
+      console.log('change');
+      $('#usr_name').removeClass('hide').addClass('hidden');
+      $('.entr_name').html("You are " + user_name);
+      $('.entr_name').removeClass('hidden').addClass('show');
+    });
+
+  }
+  function show_name(){
+    $('.entr_name').addClass('hide');
+    $('.entr_name').bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
+    function() {
+      console.log('change');
+      $('.entr_name').removeClass('hide').addClass('hidden');
+      $('#usr_name').html("You are " + user_name);
+      $('#usr_name').removeClass('hidden').addClass('show');
+    });
+
+  }
+
+  $('.entr_name').on( "dblclick", function(){show_name();});
+
+
+  $('#msg').submit(function(){
+    var message = $('#chat_area').val();
+    //message = scrubMessage(message);
+    if (message !== false){
+      if(user_name === ""){user_name = "Annon";}
+      socket.emit('chat message',user_name + ": " + message);
+      $('#chat_area').val('');
+    }
+    return false;
+  });
+
+  $('#name').submit(function(){
+    var message = $('#usr_name').val();
+    //message = scrubMessage(message);
+    if (message !== false){
+      user_name = message;
+      hide_name();
+    }
+    return false;
+  });
+
+  socket.on('chat message', function(msg){
+    $('#msg_area').prepend($('<p>').text(msg));
+  });
+
 
 
   //Check for Illegal Messages
@@ -17,26 +72,26 @@
   function parseEmoji(message){
 
     var emoji =[
-      {
-        'char':'happy',
-        'emoji':'0x1F604'
-      },
-      {
-        'char':"[;][\)]",
-        'emoji':'1F609'
-      },
-      {
-        'char':"[:][P]",
-        'emoji':'1F61C'
-      },
-      {
-        'char': "[\-][\_][\-]",
-        'emoji':'1F620'
-      },
-      {
-        'char':"[:][\(]",
-        'emoji':'1F622'
-      }
+      // {
+      //   'char':'happy',
+      //   'emoji':'0x1F604'
+      // },
+      // {
+      //   'char':"[;][\)]",
+      //   'emoji':'1F609'
+      // },
+      // {
+      //   'char':"[:][P]",
+      //   'emoji':'1F61C'
+      // },
+      // {
+      //   'char': "[\-][\_][\-]",
+      //   'emoji':'1F620'
+      // },
+      // {
+      //   'char':"[:][\(]",
+      //   'emoji':'1F622'
+      // }
     ];
 
     var check = message;

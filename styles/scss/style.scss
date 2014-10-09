@@ -12,9 +12,24 @@ body{
   background: linear-gradient(45deg,#112F41, #068587);
 }
 
-h1{
+.hide{
+  opacity:0;
+}
+.hidden{
+  display:none;
+}
+.show{
+  opacity:1;
+}
+
+h1,h5{
   font-family: 'Josefin Sans', sans-serif;
   color:#f0f0f0;
+}
+
+h5{
+  transition:all 0.3s;
+  text-align:center;
 }
 
 p,input{
@@ -29,6 +44,10 @@ p,input{
     margin:0 auto;
 
   }
+
+  .name_holder{
+    margin-top:1rem;
+  }
   input[type="text"]{
     color:#fff;
     width:100%;
@@ -36,6 +55,7 @@ p,input{
     border:none;
     border-bottom:1px solid rgba(252,176,60,0.6);
     font-size:1.5rem;
+    transition:all 0.3s;
     &:focus{
       outline: none !important;
     }

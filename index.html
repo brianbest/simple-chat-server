@@ -43,9 +43,15 @@
           </div>
 
           <!-- User input -->
-          <form action="">
+          <form action="" id="msg">
             <input type="text" id="chat_area" placeholder="Tell me your thoughts..."/>
           </form>
+          <div class="name_holder">
+            <form action="" id="name">
+              <input type="text" id="usr_name" placeholder="Who are you...?" autocomplete="off"/>
+            </form>
+            <h5 class="entr_name hidden"></h5>
+          </div>
           <!-- end input -->
         </div>
       </section>
@@ -57,24 +63,5 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="./scripts/js/pure.js"></script>
-    <script>
-      var socket = io();
-      $('form').submit(function(){
-        var message = $('#chat_area').val();
-        //message = scrubMessage(message);
-        if (message != false){
-          socket.emit('chat message', message);
-          $('#chat_area').val('');
-        }
-        return false;
-      });
-
-      socket.on('chat message', function(msg){
-        $('#msg_area').prepend($('<p>').text(msg));
-      });
-    </script>
-
-    <!-- CoffeeScript file -->
-    <!--<script src="scripts/js/app.js"></script>-->
   </body>
 </html>
