@@ -1,33 +1,34 @@
 //Pure Javascript version
 
   var socket = io();
-  var user_name = "";
+  var user_name = "annon" + Math.floor(Math.random() * 20);
+  $('.entr_name').html("You are " + user_name);
 
   //Once user has entered name hide feild
   function hide_name(){
-    $('#usr_name').addClass('hide');
-    $('#usr_name').bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
+    $('#name').addClass('hide');
+    $('#name').bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
     function() {
       console.log('change');
-      $('#usr_name').removeClass('hide').addClass('hidden');
+      $('#name').removeClass('hide').addClass('hidden');
       $('.entr_name').html("You are " + user_name);
-      $('.entr_name').removeClass('hidden').addClass('show');
+      $('#the_name').removeClass('hidden');
     });
 
   }
   function show_name(){
-    $('.entr_name').addClass('hide');
-    $('.entr_name').bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
+    $('#the_name').addClass('hide');
+    $('#the_name').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
     function() {
-      console.log('change');
-      $('.entr_name').removeClass('hide').addClass('hidden');
-      $('#usr_name').html("You are " + user_name);
-      $('#usr_name').removeClass('hidden').addClass('show');
+      $('#the_name').removeClass('hide').addClass('hidden');
+      $('#name').removeClass('hidden');
     });
-
   }
 
-  $('.entr_name').on( "dblclick", function(){show_name();});
+  $('#the_name').click(function(){
+    console.log('stuff');
+    show_name();
+    });
 
 
   $('#msg').submit(function(){

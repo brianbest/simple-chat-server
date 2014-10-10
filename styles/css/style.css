@@ -60,6 +60,9 @@
 .size-12 {
   width: 100%; }
 
+* {
+  transition: all 0.3s; }
+
 body {
   height: 100vh;
   background: -webkit-linear-gradient(45deg, #112F41, #068587);
@@ -85,7 +88,8 @@ h1, h5 {
 
 h5 {
   transition: all 0.3s;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 0.55rem; }
 
 p, input {
   font-family: 'Inconsolata', sans-serif; }
@@ -96,14 +100,16 @@ p, input {
   margin: 0 auto; }
 .chat_holder .name_holder {
   margin-top: 1rem; }
+  .chat_holder .name_holder p {
+    color: #fff;
+    margin-top: 0; }
 .chat_holder input[type="text"] {
   color: #fff;
   width: 100%;
   background-color: rgba(255, 255, 255, 0);
   border: none;
   border-bottom: 1px solid rgba(252, 176, 60, 0.6);
-  font-size: 1.5rem;
-  transition: all 0.3s; }
+  font-size: 1.5rem; }
   .chat_holder input[type="text"]:focus {
     outline: none !important; }
 
