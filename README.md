@@ -7,6 +7,11 @@ In this project, you’ll create a chat [server](http://en.wikipedia.org/wiki/We
 This project will give you experience with Node.js, Socket.IO, and jQuery.
 
 
+##Useage
+
+Users are able to send messages back and forth by filling out the first input box and hitting enter. They may do so anonymously or create their own username by clicking on the 'edit' text at the bottom of the page and making it work that way.
+
+
 ##Development
 
 Well that was easy, I followed a tutorial on socket.io on how to make a simple chat server. Once complete I just modified that code to work with my interface, Changed some functions added a bit more logic.
