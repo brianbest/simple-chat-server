@@ -98,6 +98,8 @@ p, input {
   float: none;
   display: block;
   margin: 0 auto; }
+.chat_holder #the_name {
+  cursor: pointer; }
 .chat_holder .name_holder {
   margin-top: 1rem; }
   .chat_holder .name_holder p {
