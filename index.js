@@ -11,7 +11,7 @@ app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/scripts", express.static(__dirname + '/scripts'));
 
 //for OG: image
-app.use("/chat.png", express.static(__dirname + '/chat.png'));
+//app.use("/chat.png", express.static(__dirname + '/chat.png'));
 
 io.on('connection', function(socket){
   console.log('a user connected');
