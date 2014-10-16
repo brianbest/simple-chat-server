@@ -55,7 +55,18 @@
   socket.on('chat message', function(msg){
     $('#msg_area').prepend($('<p>').text(msg));
   });
+  socket.on('past messages', function(msg){
+    console.log('stuff');
+    pastPast(msg);
+  });
 
+function pastPast(msg){
+  console.log('did');
+  var messages = msg;
+  for(var i = 0; i < messages.length; i++){
+    $('#msg_area').prepend($('<p>').text(messages[i]));
+  }
+}
 
 
   //Check for Illegal Messages
@@ -130,16 +141,3 @@
       return false;
     }
   }
-
-  // //Only once the chat area is activated do we listen for a key up event
-  // //-------------------------------
-  // function chatClicked(){
-  //     console.log('clicked');
-  //     document.addEventListener("keyup", function(){sendMessage(event);}, false);
-  // }
-  //
-  //
-  //
-  // //Listen for chat area to be activated
-  // //-------------------------------
-  // document.getElementById('chat_area').addEventListener("click", function(){chatClicked();}, false);
