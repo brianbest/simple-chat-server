@@ -55,6 +55,8 @@
   socket.on('chat message', function(msg){
     $('#msg_area').prepend($('<p>').text(msg));
   });
+
+  socket.emit('past message',"none");
   socket.on('past messages', function(msg){
     console.log('stuff');
     pastPast(msg);

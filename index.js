@@ -18,9 +18,11 @@ io.on('connection', function(socket){
 
   //Send user a list of stuff
   //holdingArry = getPast(client);
-  client.lrange(['mes1',0,-1], function (err, reply) {
-    io.emit('past messages', reply);
-  }, redis.print);
+  socket.on("send past", function(msg){
+    client.lrange(['mes1',0,-1], function (err, reply) {
+      io.emit('past messages', reply);
+    }, redis.print);
+  }
 
 
   socket.on("chat message", function(msg){
@@ -34,6 +36,6 @@ io.on('connection', function(socket){
 });
 
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(80, function(){
+  console.log('listening on *:80');
 });
