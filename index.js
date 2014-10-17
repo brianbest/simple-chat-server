@@ -22,7 +22,7 @@ io.on('connection', function(socket){
     client.lrange(['mes1',0,-1], function (err, reply) {
       io.emit('past messages', reply);
     }, redis.print);
-  }
+  });
 
 
   socket.on("chat message", function(msg){
